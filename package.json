@@ -14,5 +14,9 @@
     "games"
   ],
   "author": "dara",
-  "license": "ISC"
+  "license": "ISC",
+  "type": "module",
+  "bin": {
+    "brain-games": "bin/brain-games.js"
+  }
 }
