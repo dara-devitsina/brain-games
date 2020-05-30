@@ -1,7 +1,5 @@
-install: install-deps
-
-install-deps:
-	npm ci
+install:
+	npm install
 
 brain-games:
 	node bin/brain-games.js
