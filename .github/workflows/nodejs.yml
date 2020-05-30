@@ -37,7 +37,7 @@ jobs:
           make install
         # Add environment variables
         env:
-          node: true
+          CI: true
       - name: Run linter
         # Run Linter
         run: |
