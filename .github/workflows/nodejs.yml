@@ -35,9 +35,6 @@ jobs:
         # Install and build project
         run: |
           make install
-      - name: npm publish
-        run: |
-          npm publish --dry-run
       - name: Run linter
         # Run Linter
         run: |
