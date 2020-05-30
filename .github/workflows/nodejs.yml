@@ -32,6 +32,6 @@ jobs:
           make install
       - name: Run linter
         run: |
-          make lint
+          npx eslint .
         env:
           CI: true
