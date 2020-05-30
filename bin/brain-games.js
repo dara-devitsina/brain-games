@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import sayHi from '../src/cli.js';
+import { welcome } from '../src/welcome.js';
 
-console.log(sayHi);
+console.log(welcome);
