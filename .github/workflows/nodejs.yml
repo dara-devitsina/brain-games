@@ -32,11 +32,11 @@ jobs:
       - name: npm install, build
         # Install and build project
         run: |
-          npm install
+          make install
         # Add environment variables
         env:
           CI: true
       - name: Run linter
         # Run Linter
         run: |
-          npx eslint .
+          make lint
