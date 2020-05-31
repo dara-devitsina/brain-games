@@ -1,38 +1,24 @@
 import readlineSync from 'readline-sync';
 import { welcome, name } from './welcome.js';
 
+const isEven = (num) => {
+  if (num % 2 === 0) {
+    return 'yes';
+  } return 'no';
+};
+
 const brainEven = () => {
-    console.log(welcome);
+  console.log(welcome);
+  for (let i = 0; i < 3; i += 1) {
+    const randomNum = Math.floor(Math.random() * 1000000);
+    const correctAnswer = isEven(randomNum);
+    const userAnswer = readlineSync.question(`Question: ${randomNum}\nYour answer: `);
 
-    let numOfQuestions = 0;
-    while (numOfQuestions < 3) {
-        const randomNum = Math.floor(Math.random() * 1000000);
-        const query = `Question: ${randomNum}`;
-        console.log(query);
-        const userAnswer = readlineSync.prompt();
-
-        if (randomNum % 2 === 0) {
-            if (userAnswer === 'yes') {
-                console.log('Correct!');
-                numOfQuestions += 1;
-            } else {
-                console.log(`${userAnswer} is wrong answer ;(. Correct answer was "yes". Let's try again, ${name}!`);
-                break;
-            }
-        }
-        else {
-            if (userAnswer === 'no') {
-                console.log('Correct!');
-                numOfQuestions += 1;
-            } else {
-                console.log(`${userAnswer} is wrong answer ;(. Correct answer was "no". Let's try again, ${name}!`);
-                break;
-            }
-        }
-        if (numOfQuestions === 3) {
-            return `Congratulations, ${name}!`;
-        }
-    }
+    if (userAnswer !== correctAnswer) {
+      return console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}. Let's try again, ${name}!`);
+    } console.log('Correct!');
+  }
+  return console.log(`Congratulations, ${name}!`);
 };
 
 export default brainEven;
