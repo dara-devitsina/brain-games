@@ -1,13 +1,10 @@
 import readlineSync from 'readline-sync';
-//import { userName } from '../src/usersName.js';
+import { welcome, name } from './welcome.js';
 
 const brainEven = () => {
-    console.log('May I have your name?');
-    const userName = readlineSync.prompt();
-    console.log(`Hello, ${userName}! Answer "yes" if the number is even, otherwise answer "no".`);
+    console.log(welcome);
 
-let numOfQuestions = 0;
-
+    let numOfQuestions = 0;
     while (numOfQuestions < 3) {
         const randomNum = Math.floor(Math.random() * 1000000);
         const query = `Question: ${randomNum}`;
@@ -20,7 +17,7 @@ let numOfQuestions = 0;
                 numOfQuestions += 1;
             }
             else {
-                console.log(`${userAnswer} is wrong answer ;(. Correct answer was "yes". Let's try again, ${userName}!`);
+                console.log(`${userAnswer} is wrong answer ;(. Correct answer was "yes". Let's try again, ${name}!`);
                 break;
             }
         }
@@ -32,14 +29,14 @@ let numOfQuestions = 0;
             }
 
             else {
-                console.log(`${userAnswer} is wrong answer ;(. Correct answer was "no". Let's try again, ${userName}!`);
+                console.log(`${userAnswer} is wrong answer ;(. Correct answer was "no". Let's try again, ${name}!`);
                 break;
             }
         }
     }
-if (numOfQuestions === 3) {
-    return `Congratulations, ${userName}!`;
-}
+    if (numOfQuestions === 3) {
+        return `Congratulations, ${name}!`;
+    }
 };
 
 export default brainEven;
