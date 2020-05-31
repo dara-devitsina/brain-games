@@ -1,2 +1,2 @@
-export const welcome = 'Welcome to the Brain Games!\nMay I have your name? ';
-
+const greeting = 'Welcome to the Brain Games!';
+export default greeting;

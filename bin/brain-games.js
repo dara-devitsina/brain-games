@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { welcome } from '../src/welcome.js';
+import greeting from '../src/welcome.js';
 
-console.log(welcome);
+console.log(greeting);

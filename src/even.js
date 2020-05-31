@@ -1,6 +1,10 @@
 import readlineSync from 'readline-sync';
+//import { userName } from '../src/usersName.js';
 
 const brainEven = () => {
+    console.log('May I have your name?');
+    const userName = readlineSync.prompt();
+    console.log(`Hello, ${userName}! Answer "yes" if the number is even, otherwise answer "no".`);
 
 let numOfQuestions = 0;
 
@@ -8,34 +12,33 @@ let numOfQuestions = 0;
         const randomNum = Math.floor(Math.random() * 1000000);
         const query = `Question: ${randomNum}`;
         console.log(query);
-        let usersAnswer = readlineSync.question();
+        let userAnswer = readlineSync.prompt();
 
         if (randomNum % 2 === 0) {
-
-            if (usersAnswer === 'yes') {
+            if (userAnswer === 'yes') {
                 console.log('Correct!');
                 numOfQuestions += 1;
             }
             else {
-                console.log(`"no" is wrong answer ;(. Correct answer was "yes". Let's try again, !`)
+                console.log(`${userAnswer} is wrong answer ;(. Correct answer was "yes". Let's try again, ${userName}!`);
                 break;
             }
         }
 
         else {
-            if (usersAnswer === 'no') {
+            if (userAnswer === 'no') {
                 console.log('Correct!');
                 numOfQuestions += 1;
             }
 
             else {
-                console.log(`"yes" is wrong answer ;(. Correct answer was "no". Let's try again, !`)
+                console.log(`${userAnswer} is wrong answer ;(. Correct answer was "no". Let's try again, ${userName}!`);
                 break;
             }
         }
     }
 if (numOfQuestions === 3) {
-    return 'Congratulations, !';
+    return `Congratulations, ${userName}!`;
 }
 };
 
