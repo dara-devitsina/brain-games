@@ -9,33 +9,29 @@ const brainEven = () => {
         const randomNum = Math.floor(Math.random() * 1000000);
         const query = `Question: ${randomNum}`;
         console.log(query);
-        let userAnswer = readlineSync.prompt();
+        const userAnswer = readlineSync.prompt();
 
         if (randomNum % 2 === 0) {
             if (userAnswer === 'yes') {
                 console.log('Correct!');
                 numOfQuestions += 1;
-            }
-            else {
+            } else {
                 console.log(`${userAnswer} is wrong answer ;(. Correct answer was "yes". Let's try again, ${name}!`);
                 break;
             }
         }
-
         else {
             if (userAnswer === 'no') {
                 console.log('Correct!');
                 numOfQuestions += 1;
-            }
-
-            else {
+            } else {
                 console.log(`${userAnswer} is wrong answer ;(. Correct answer was "no". Let's try again, ${name}!`);
                 break;
             }
         }
-    }
-    if (numOfQuestions === 3) {
-        return `Congratulations, ${name}!`;
+        if (numOfQuestions === 3) {
+            return `Congratulations, ${name}!`;
+        }
     }
 };
 
