@@ -9,10 +9,10 @@ const getRandomChar = () => {
 
 const getCorrectAnswer = (a, b, char) => {
   if (char === '+') {
-    return (a + b).toString();
+    return (a + b);
   } if (char === '-') {
-    return (a - b).toString();
-  } return (a * b).toString();
+    return (a - b);
+  } return (a * b);
 };
 
 const brainCalc = () => {
@@ -23,12 +23,12 @@ const brainCalc = () => {
     const firstNum = getRandomNumber();
     const secondNum = getRandomNumber();
     const randomChar = getRandomChar();
-    const randomExpr = `${firstNum} ${randomChar} ${secondNum}`;
-    const correctAnswer = getCorrectAnswer(firstNum, secondNum, randomChar);
-    const userAnswer = readlineSync.question(`Question: ${randomExpr}\nYour answer: `);
+    const randomTask = `${firstNum} ${randomChar} ${secondNum}`;
+    const correctAnswer = getCorrectAnswer(firstNum, secondNum, randomChar).toString();
+    const userAnswer = readlineSync.question(`Question: ${randomTask}\nYour answer: `);
 
     if (userAnswer !== correctAnswer) {
-      return console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}. Let's try again, ${name}!`);
+      return console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}".\nLet's try again, ${name}!`);
     } console.log('Correct!');
   }
   return console.log(`Congratulations, ${name}!`);

@@ -11,12 +11,12 @@ const brainEven = () => {
   console.log(welcome);
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
   for (let i = 0; i < 3; i += 1) {
-    const randomNum = getRandomNumber();
-    const correctAnswer = isEven(randomNum);
-    const userAnswer = readlineSync.question(`Question: ${randomNum}\nYour answer: `);
+    const randomTask = getRandomNumber();
+    const correctAnswer = isEven(randomTask);
+    const userAnswer = readlineSync.question(`Question: ${randomTask}\nYour answer: `);
 
     if (userAnswer !== correctAnswer) {
-      return console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}. Let's try again, ${name}!`);
+      return console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}".\nLet's try again, ${name}!`);
     } console.log('Correct!');
   }
   return console.log(`Congratulations, ${name}!`);
