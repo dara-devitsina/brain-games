@@ -22,6 +22,7 @@
     "brain-calc": "bin/brain-calc.js"
   },
   "dependencies": {
+    "@hexlet/pairs": "^1.0.15",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {

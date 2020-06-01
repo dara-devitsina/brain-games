@@ -1,36 +1,37 @@
 import readlineSync from 'readline-sync';
-import { welcome, name } from './welcome.js';
+import { welcome, name, getRandomNumber } from './index.js';
 
 const getRandomChar = () => {
-	const chars = ['+', '-', '*'];
-	const randomNum = Math.floor(Math.random() * chars.length);
-	return chars[randomNum];
+  const chars = ['+', '-', '*'];
+  const randomNum = Math.floor(Math.random() * chars.length);
+  return chars[randomNum];
 };
 
 const getCorrectAnswer = (a, b, char) => {
-	if (char === '+') {
-		return a + b;
-	} else if (char === '-') {
-		return a - b;
-	} return a * b;
+  if (char === '+') {
+    return (a + b).toString();
+  } if (char === '-') {
+    return (a - b).toString();
+  } return (a * b).toString();
 };
 
-const brainCalc = (num) => {
-console.log(welcome);
-	
-	for (let i = 0; i < 3; i += 1) {
-		const randomNumOne = Math.floor(Math.random() * 10);
-		const randomNumTwo = Math.floor(Math.random() * 10);
-		const randomChar = getRandomChar();
-		const randomExpr = `${randomNumOne} ${randomChar} ${randomNumTwo}`;
-		const correctAnswer = getCorrectAnswer(randomNumOne, randomNumTwo, randomChar);
-		const userAnswer = readlineSync.question(`Question: ${randomExpr}\nYour answer: `);
+const brainCalc = () => {
+  console.log(welcome);
+  console.log('What is the result of the expression?');
 
-		if (userAnswer != correctAnswer) {
-			return console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}. Let's try again, ${name}!`);
-		} console.log('Correct!');
-	}
-	return console.log(`Congratulations, ${name}!`);
+  for (let i = 0; i < 3; i += 1) {
+    const firstNum = getRandomNumber();
+    const secondNum = getRandomNumber();
+    const randomChar = getRandomChar();
+    const randomExpr = `${firstNum} ${randomChar} ${secondNum}`;
+    const correctAnswer = getCorrectAnswer(firstNum, secondNum, randomChar);
+    const userAnswer = readlineSync.question(`Question: ${randomExpr}\nYour answer: `);
+
+    if (userAnswer !== correctAnswer) {
+      return console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}. Let's try again, ${name}!`);
+    } console.log('Correct!');
+  }
+  return console.log(`Congratulations, ${name}!`);
 };
 
 export default brainCalc;

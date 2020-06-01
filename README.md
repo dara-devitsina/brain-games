@@ -2,3 +2,6 @@
 [![Node CI](https://github.com/dara-devitsina/brain-games/workflows/Node-CI/badge.svg)](https://github.com/dara-devitsina/brain-games/actions)
 
 [![asciicast](https://asciinema.org/a/yaKVpr2YZBi5Am9FaClXC6ana.png)](https://asciinema.org/a/yaKVpr2YZBi5Am9FaClXC6ana)
+
+[![asciicast](https://asciinema.org/a/NG9LPahq3ujXN3cp37vxj6GYx.png)](https://asciinema.org/a/NG9LPahq3ujXN3cp37vxj6GYx)
+
