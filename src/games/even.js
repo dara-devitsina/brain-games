@@ -1,6 +1,7 @@
 import pkg from '@hexlet/pairs';
 
 import { getRandomNumber, gameFlow } from '../index.js';
+
 const { cons } = pkg;
 
 const isEven = (num) => {
