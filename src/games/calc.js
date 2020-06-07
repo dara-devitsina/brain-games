@@ -1,34 +1,41 @@
 import pkg from '@hexlet/pairs';
 
-import { getRandomNumber, gameFlow } from '../index.js';
+import getRandomNumber from '../random-number.js';
+
+import gameFlow from '../index.js';
 
 const { cons } = pkg;
 
-const getRandomChar = () => {
-  const chars = ['+', '-', '*'];
-  const randomNum = Math.floor(Math.random() * chars.length);
-  return chars[randomNum];
+const getRandomSign = () => {
+  const signs = ['+', '-', '*'];
+  const randomNum = Math.floor(Math.random() * signs.length);
+  return signs[randomNum];
 };
 
-const getCorrectAnswer = (a, b, char) => {
-  if (char === '+') {
-    return (a + b);
-  } if (char === '-') {
-    return (a - b);
-  } return (a * b);
+const getCorrectAnswer = (a, b, sign) => {
+  switch (sign) {
+    case '+':
+      return (a + b);
+    case '-':
+      return (a - b);
+    case '*':
+      return (a * b);
+    default:
+      return console.log('Error: no such sign');
+  }
 };
 
 const description = 'What is the result of the expression?';
 
-const getPair = () => {
-  const firstNum = getRandomNumber();
-  const secondNum = getRandomNumber();
-  const randomChar = getRandomChar();
-  const randomTask = `${firstNum} ${randomChar} ${secondNum}`;
-  const correctAnswer = getCorrectAnswer(firstNum, secondNum, randomChar).toString();
-  return cons(randomTask, correctAnswer);
+const generateGameData = () => {
+  const firstNum = getRandomNumber(0, 500);
+  const secondNum = getRandomNumber(0, 500);
+  const randomSign = getRandomSign();
+  const task = `${firstNum} ${randomSign} ${secondNum}`;
+  const correctAnswer = getCorrectAnswer(firstNum, secondNum, randomSign).toString();
+  return cons(task, correctAnswer);
 };
 
-const brainCalc = () => gameFlow(description, getPair);
+const brainCalc = () => gameFlow(description, generateGameData);
 
 export default brainCalc;

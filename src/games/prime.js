@@ -1,6 +1,8 @@
 import pkg from '@hexlet/pairs';
 
-import { getRandomNumber, gameFlow } from '../index.js';
+import getRandomNumber from '../random-number.js';
+
+import gameFlow from '../index.js';
 
 const { cons } = pkg;
 
@@ -18,12 +20,12 @@ const isPrime = (num) => {
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const getPair = () => {
-  const randomTask = getRandomNumber();
-  const correctAnswer = isPrime(randomTask);
-  return cons(randomTask, correctAnswer);
+const generateGameData = () => {
+  const task = getRandomNumber(0, 100);
+  const correctAnswer = isPrime(task);
+  return cons(task, correctAnswer);
 };
 
-const brainPrime = () => gameFlow(description, getPair);
+const brainPrime = () => gameFlow(description, generateGameData);
 
 export default brainPrime;

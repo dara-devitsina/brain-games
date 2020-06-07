@@ -1,25 +1,27 @@
 import pkg from '@hexlet/pairs';
 
-import { getRandomNumber, gameFlow } from '../index.js';
+import getRandomNumber from '../random-number.js';
+
+import gameFlow from '../index.js';
 
 const { cons } = pkg;
 
-const getCorrectAnswer = (num1, num2) => {
-  if (num2 > num1) return getCorrectAnswer(num2, num1);
+const findGcd = (num1, num2) => {
+  if (num2 > num1) return findGcd(num2, num1);
   if (!num2) return num1;
-  return getCorrectAnswer(num2, num1 % num2);
+  return findGcd(num2, num1 % num2);
 };
 
 const description = 'Find the greatest common divisor of given numbers.';
 
-const getPair = () => {
-  const firstNum = getRandomNumber();
-  const secondNum = getRandomNumber();
-  const randomTask = `${firstNum} ${secondNum}`;
-  const correctAnswer = getCorrectAnswer(firstNum, secondNum).toString();
-  return cons(randomTask, correctAnswer);
+const generateGameData = () => {
+  const firstNum = getRandomNumber(0, 100);
+  const secondNum = getRandomNumber(0, 100);
+  const task = `${firstNum} ${secondNum}`;
+  const correctAnswer = findGcd(firstNum, secondNum).toString();
+  return cons(task, correctAnswer);
 };
 
-const brainGcd = () => gameFlow(description, getPair);
+const brainGcd = () => gameFlow(description, generateGameData);
 
 export default brainGcd;

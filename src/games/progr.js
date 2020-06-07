@@ -1,19 +1,22 @@
 import pkg from '@hexlet/pairs';
 
-import { getRandomNumber, gameFlow } from '../index.js';
+import getRandomNumber from '../random-number.js';
+
+import gameFlow from '../index.js';
 
 const { cons } = pkg;
 
-const generateTask = () => {
+const progrLength = 10;
+
+const missingItem = getRandomNumber(0, progrLength);
+
+const generateTask = (start, step, missingElement) => {
   const result = [];
-  let start = getRandomNumber();
-  const step = getRandomNumber();
-  for (let i = 0; i < 10; i += 1) {
+  for (let i = 0; i < progrLength; i += 1) {
     start += step;
     result.push(start);
   }
-  const hiddenElement = Math.floor(Math.random() * result.length);
-  result[hiddenElement] = '..';
+  result[missingElement] = '..';
   return result.join(' ');
 };
 
@@ -40,12 +43,14 @@ const getCorrectAnswer = (progression) => {
 
 const description = 'What number is missing in the progression?';
 
-const getPair = () => {
-  const randomTask = generateTask();
-  const correctAnswer = getCorrectAnswer(randomTask).toString();
-  return cons(randomTask, correctAnswer);
+const generateGameData = () => {
+  const start = getRandomNumber(0, 10);
+  const step = getRandomNumber(0, 5);
+  const task = generateTask(start, step, missingItem);
+  const correctAnswer = getCorrectAnswer(task).toString();
+  return cons(task, correctAnswer);
 };
 
-const brainProgr = () => gameFlow(description, getPair);
+const brainProgr = () => gameFlow(description, generateGameData);
 
 export default brainProgr;

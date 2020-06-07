@@ -8,9 +8,7 @@ const { cdr } = pkg;
 const name = readlineSync.question('Welcome to the Brain Games!\nMay I have your name? ');
 const welcome = `Hello, ${name}!`;
 
-export const getRandomNumber = () => Math.floor(Math.random() * 10);
-
-export const gameFlow = (taskDescription, pair) => {
+const gameFlow = (taskDescription, pair) => {
   console.log(welcome);
   console.log(taskDescription);
   for (let i = 0; i < 3; i += 1) {
@@ -24,3 +22,5 @@ export const gameFlow = (taskDescription, pair) => {
   }
   return console.log(`Congratulations, ${name}!`);
 };
+
+export default gameFlow;

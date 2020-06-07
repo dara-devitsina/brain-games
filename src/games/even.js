@@ -1,23 +1,21 @@
 import pkg from '@hexlet/pairs';
 
-import { getRandomNumber, gameFlow } from '../index.js';
+import getRandomNumber from '../random-number.js';
+
+import gameFlow from '../index.js';
 
 const { cons } = pkg;
 
-const isEven = (num) => {
-  if (num % 2 === 0) {
-    return 'yes';
-  } return 'no';
-};
+const isEven = (num) => num % 2 === 0;
 
 const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const getPair = () => {
-  const randomTask = getRandomNumber();
-  const correctAnswer = isEven(randomTask);
-  return cons(randomTask, correctAnswer);
+const generateGameData = () => {
+  const task = getRandomNumber(0, 1000000);
+  const getCorrectAnswer = () => (isEven(task) ? 'yes' : 'no');
+  return cons(task, getCorrectAnswer());
 };
 
-const brainEven = () => gameFlow(description, getPair);
+const brainEven = () => gameFlow(description, generateGameData);
 
 export default brainEven;
