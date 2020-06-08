@@ -8,46 +8,36 @@ const { cons } = pkg;
 
 const progrLength = 10;
 
-const missingItem = getRandomNumber(0, progrLength);
-
-const generateTask = (start, step, missingElement) => {
+const generateProgr = (start, step) => {
   const result = [];
   for (let i = 0; i < progrLength; i += 1) {
-    start += step;
-    result.push(start);
+    const currentNum = start + step * i;
+    result.push(currentNum);
   }
-  result[missingElement] = '..';
-  return result.join(' ');
+  return result;
 };
 
-const getCorrectAnswer = (progression) => {
-  const arr = progression.split(' ');
-  const emptyCell = arr.indexOf('..');
-  let stepLength = 0;
-  const prevCell = Number.parseInt(arr[emptyCell - 1], 10);
-  const nextCell = Number.parseInt(arr[emptyCell + 1], 10);
-  const afterNextCell = Number.parseInt(arr[emptyCell + 2], 10);
-  const beforePrevCell = Number.parseInt(arr[emptyCell - 2], 10);
+const getProgrWithHiddenNum = (progression, missingItem) => {
+  const newProgr = [...progression];
+  newProgr[missingItem] = '..';
+  return newProgr.join(' ');
+};
 
-  if (emptyCell === 0) {
-    stepLength = afterNextCell - nextCell;
-    return nextCell - stepLength;
-  }
-  if (emptyCell === arr.length - 1) {
-    stepLength = prevCell - beforePrevCell;
-    return prevCell + stepLength;
-  }
-  stepLength = (nextCell - prevCell) / 2;
-  return prevCell + stepLength;
+const getCorrectAnswer = (progrStr, progrArr) => {
+  const newProgr = progrStr.split(' ');
+  const index = newProgr.indexOf('..');
+  return progrArr[index];
 };
 
 const description = 'What number is missing in the progression?';
 
 const generateGameData = () => {
-  const start = getRandomNumber(0, 10);
-  const step = getRandomNumber(0, 5);
-  const task = generateTask(start, step, missingItem);
-  const correctAnswer = getCorrectAnswer(task).toString();
+  const start = getRandomNumber(0, 100);
+  const step = getRandomNumber(0, 30);
+  const missingNum = getRandomNumber(0, progrLength);
+  const progr = generateProgr(start, step);
+  const task = getProgrWithHiddenNum(progr, missingNum);
+  const correctAnswer = getCorrectAnswer(task, progr).toString();
   return cons(task, correctAnswer);
 };
 

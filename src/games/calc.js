@@ -21,7 +21,7 @@ const getCorrectAnswer = (a, b, sign) => {
     case '*':
       return (a * b);
     default:
-      return console.log('Error: no such sign');
+      return null;
   }
 };
 
