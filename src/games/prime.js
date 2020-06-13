@@ -8,22 +8,22 @@ const { cons } = pkg;
 
 const isPrime = (num) => {
   if (num < 2) {
-    return 'no';
+    return false;
   }
   for (let i = 2; i <= Math.sqrt(num); i += 1) {
     if (num % i === 0) {
-      return 'no';
+      return false;
     }
   }
-  return 'yes';
+  return true;
 };
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const generateGameData = () => {
   const task = getRandomNumber(0, 100);
-  const correctAnswer = isPrime(task);
-  return cons(task, correctAnswer);
+  const getCorrectAnswer = () => (isPrime(task) ? 'yes' : 'no');
+  return cons(task, getCorrectAnswer());
 };
 
 const brainPrime = () => gameFlow(description, generateGameData);
