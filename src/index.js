@@ -4,10 +4,6 @@ import pkg from '@hexlet/pairs';
 
 const { car, cdr } = pkg;
 
-// const welcome = 'Welcome to the Brain Games!';
-// const name = readlineSync.question('May I have your name? ');
-// const welcome = `Hello, ${name}!`;
-
 const gameFlow = (description, getGameData) => {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');

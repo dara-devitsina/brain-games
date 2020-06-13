@@ -6,19 +6,19 @@ import gameFlow from '../index.js';
 
 const { cons } = pkg;
 
-const findGcd = (num1, num2) => {
-  if (num2 > num1) return findGcd(num2, num1);
-  if (!num2) return num1;
-  return findGcd(num2, num1 % num2);
+const findGcd = (number1, number2) => {
+  if (number2 > number1) return findGcd(number2, number1);
+  if (!number2) return number1;
+  return findGcd(number2, number1 % number2);
 };
 
 const description = 'Find the greatest common divisor of given numbers.';
 
 const generateGameData = () => {
-  const firstNum = getRandomNumber(0, 100);
-  const secondNum = getRandomNumber(0, 100);
-  const task = `${firstNum} ${secondNum}`;
-  const correctAnswer = findGcd(firstNum, secondNum).toString();
+  const firstNumber = getRandomNumber(0, 100);
+  const secondNumber = getRandomNumber(0, 100);
+  const task = `${firstNumber} ${secondNumber}`;
+  const correctAnswer = findGcd(firstNumber, secondNumber).toString();
   return cons(task, correctAnswer);
 };
 

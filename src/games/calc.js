@@ -8,8 +8,8 @@ const { cons } = pkg;
 
 const getRandomSign = () => {
   const signs = ['+', '-', '*'];
-  const randomNum = Math.floor(Math.random() * signs.length);
-  return signs[randomNum];
+  const randomNumber = Math.floor(Math.random() * signs.length);
+  return signs[randomNumber];
 };
 
 const getCorrectAnswer = (a, b, sign) => {
@@ -28,11 +28,11 @@ const getCorrectAnswer = (a, b, sign) => {
 const description = 'What is the result of the expression?';
 
 const generateGameData = () => {
-  const firstNum = getRandomNumber(0, 500);
-  const secondNum = getRandomNumber(0, 500);
+  const firstNumber = getRandomNumber(0, 500);
+  const secondNumber = getRandomNumber(0, 500);
   const randomSign = getRandomSign();
-  const task = `${firstNum} ${randomSign} ${secondNum}`;
-  const correctAnswer = getCorrectAnswer(firstNum, secondNum, randomSign).toString();
+  const task = `${firstNumber} ${randomSign} ${secondNumber}`;
+  const correctAnswer = getCorrectAnswer(firstNumber, secondNumber, randomSign).toString();
   return cons(task, correctAnswer);
 };
 

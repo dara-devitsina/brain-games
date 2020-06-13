@@ -6,7 +6,7 @@ import gameFlow from '../index.js';
 
 const { cons } = pkg;
 
-const isEven = (num) => num % 2 === 0;
+const isEven = (number) => number % 2 === 0;
 
 const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 

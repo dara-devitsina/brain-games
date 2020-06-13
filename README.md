@@ -4,7 +4,7 @@
 
 "Brain games" is a set of 5 console games for a brain empowering.
 Every game has 3 questions each of them needs to be answered correctly.
-In case of wrong answer the game ends and offers user to begin again.
+In case of wrong answer the game ends and offers user to start again.
 
 ## Install ##
 Clone this repo
