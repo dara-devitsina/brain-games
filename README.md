@@ -9,23 +9,28 @@ In case of wrong answer the game ends and offers user to begin again.
 ## Install ##
 Clone this repo
 
-## Game "Is the Number Even? ##
-Type `brain-even` in your console to start\n
+## Game "Is the Number Even?" ##
+Type `brain-even` in your console to start  
+
 [![asciicast](https://asciinema.org/a/336167.png)](https://asciinema.org/a/336167)
 
 ## Game "Calculator" ##
-Type `brain-calc` in your console to start\n
+Type `brain-calc` in your console to start  
+
 [![asciicast](https://asciinema.org/a/336169.png)](https://asciinema.org/a/336169)
 
 ## Game "Determine the Greatest Common Divisor" ##
-Type `brain-gcd` in your console to start\n
+Type `brain-gcd` in your console to start  
+
 [![asciicast](https://asciinema.org/a/336170.png)](https://asciinema.org/a/336170)
 
 ## Game "Is the Number Prime?" ##
-Type `brain-prime` in your console to start\n
+Type `brain-prime` in your console to start  
+
 [![asciicast](https://asciinema.org/a/336171.png)](https://asciinema.org/a/336171)
 
 ## Game "Find Missing Number in the Progression" ##
-Type `brain-progression` in your console to start\n
+Type `brain-progression` in your console to start  
+
 [![asciicast](https://asciinema.org/a/335915.png)](https://asciinema.org/a/335915)
 
