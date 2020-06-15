@@ -7,7 +7,17 @@ Every game has 3 questions each of them needs to be answered correctly.
 In case of wrong answer the game ends and offers user to start again.
 
 ## Install ##
-Clone this repo
+1. Clone this repository
+
+```
+git clone https://github.com/dara-devitsina/brain-games
+```
+
+2. Launch installation from the folder "brain-games"
+
+```
+make publish
+```
 
 ## Game "Is the Number Even?" ##
 Type `brain-even` in your console to start  
