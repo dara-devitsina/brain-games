@@ -6,9 +6,10 @@ import gameFlow from '../index.js';
 
 const { cons } = pkg;
 
+const progressionLength = 10;
+
 const generateQuestion = (start, step, missingItem) => {
   const result = [];
-  const progressionLength = 10;
   for (let i = 0; i < progressionLength; i += 1) {
     const currentNumber = start + step * i;
     result.push(currentNumber);
@@ -20,9 +21,9 @@ const generateQuestion = (start, step, missingItem) => {
 const description = 'What number is missing in the progression?';
 
 const generateGameData = () => {
-  const start = getRandomNumber(0, 100);
-  const step = getRandomNumber(0, 30);
-  const missingNumberIndex = getRandomNumber(0);
+  const start = getRandomNumber(0, 10);
+  const step = getRandomNumber(0, 3);
+  const missingNumberIndex = getRandomNumber(0, progressionLength - 1);
   const task = generateQuestion(start, step, missingNumberIndex);
   const correctAnswer = (start + step * missingNumberIndex).toString();
   return cons(task, correctAnswer);
