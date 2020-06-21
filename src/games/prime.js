@@ -22,8 +22,8 @@ const description = 'Answer "yes" if given number is prime. Otherwise answer "no
 
 const generateGameData = () => {
   const task = getRandomNumber(0, 100);
-  const getCorrectAnswer = () => (isPrime(task) ? 'yes' : 'no');
-  return cons(task, getCorrectAnswer());
+  const correctAnswer = isPrime(task) ? 'yes' : 'no';
+  return cons(task, correctAnswer);
 };
 
 const brainPrime = () => gameFlow(description, generateGameData);

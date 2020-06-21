@@ -8,7 +8,7 @@ const { cons } = pkg;
 
 const getRandomSign = () => {
   const signs = ['+', '-', '*'];
-  const randomNumber = Math.floor(Math.random() * signs.length);
+  const randomNumber = getRandomNumber(0, signs.length - 1);
   return signs[randomNumber];
 };
 

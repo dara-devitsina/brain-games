@@ -15,7 +15,8 @@ const gameFlow = (description, getGameData) => {
     const currentParams = getGameData();
     const task = car(currentParams);
     const answer = cdr(currentParams);
-    const userAnswer = readlineSync.question(`Question: ${task}\nYour answer: `);
+    console.log(`Question: ${task}`);
+    const userAnswer = readlineSync.question('Your answer: ');
     if (userAnswer === answer) {
       console.log('Correct!');
     } else {
