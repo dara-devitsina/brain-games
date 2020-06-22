@@ -21,12 +21,12 @@ const generateQuestion = (start, step, missingItem) => {
 const description = 'What number is missing in the progression?';
 
 const generateGameData = () => {
-  const start = getRandomNumber(0, 10);
-  const step = getRandomNumber(0, 3);
+  const start = getRandomNumber(0, 100);
+  const step = getRandomNumber(0, 30);
   const missingNumberIndex = getRandomNumber(0, progressionLength - 1);
-  const task = generateQuestion(start, step, missingNumberIndex);
+  const question = generateQuestion(start, step, missingNumberIndex);
   const correctAnswer = (start + step * missingNumberIndex).toString();
-  return cons(task, correctAnswer);
+  return cons(question, correctAnswer);
 };
 
 const brainProgression = () => gameFlow(description, generateGameData);
